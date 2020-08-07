@@ -7,6 +7,13 @@ class OptionsView {
       this.toggle(false);
     });
 
+    $dom.find('.octotree-github-oauth').click((event) => {
+      event.preventDefault();
+      console.log('octotree-github-oauth')
+      // window.location.href = platform.getOAuthLink()
+      alert(`We are working on it`)
+    })
+
     this.$view.find('a.octotree-create-token').attr('href', this.adapter.getCreateTokenUrl());
 
     this.loadElements();
