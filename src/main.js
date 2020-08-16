@@ -131,8 +131,16 @@ $(document).ready(() => {
       }
     }
 
+    function getTokenFromUrl() {
+      const url = window.location.href;
+      const accessToken = url.split("?")[1].split("&")[0].split("=")[1];
+      localStorage.setItem(STORE.TOKEN, accessToken);
+      return accessToken;
+    }
+
     async function tryLoadRepo(reload) {
-      const token = await octotree.getAccessToken();
+      const storeToken = await octotree.getAccessToken();
+      const token = storeToken || getTokenFromUrl();
       await adapter.getRepoFromPath(currRepo, token, async (err, repo) => {
         if (err) {
           // Error making API, likely private repo but no token
