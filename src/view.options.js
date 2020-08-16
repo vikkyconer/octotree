@@ -13,7 +13,7 @@ class OptionsView {
       event.preventDefault();
       console.log("octotree-github-oauth");
       window.location.href =
-        "https://github.com/login/oauth/authorize?scope=user:email&client_id=cfa7d8c85ec9fa22261b";
+        "https://github.com/login/oauth/authorize?client_id=cfa7d8c85ec9fa22261b&scope=repo";        
     });
 
     this.$view
